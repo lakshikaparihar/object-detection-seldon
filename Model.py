@@ -1,8 +1,10 @@
 from imageai.Detection import ObjectDetection
 import os
+import tensorflow as tf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import json
 
-class object_Detection(object):
+class Model(object):
     def __init__(self):
         print("Initializing class .......")
         self.execution_path = os.getcwd()
