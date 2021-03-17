@@ -11,3 +11,4 @@ RUN pip install imageai
 RUN pip install grpcio-reflection==1.32.0
 
 ADD resnet50_coco_best_v2.1.0.h5 .
+RUN pip install scikit-image
