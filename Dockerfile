@@ -8,3 +8,6 @@ RUN pip install keras==2.4.3
 RUN pip install pillow==7.0.0 
 RUN pip install h5py==2.10.0
 RUN pip install imageai
+RUN pip install grpcio-reflection==1.32.0
+
+ADD resnet50_coco_best_v2.1.0.h5 .
