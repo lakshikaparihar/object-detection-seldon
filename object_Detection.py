@@ -2,6 +2,7 @@ from imageai.Detection import ObjectDetection
 import os
 import json
 from skimage import io
+from numpy import asarray
 
 class object_Detection(object):
     def __init__(self):
@@ -14,10 +15,14 @@ class object_Detection(object):
         print("Loading model..........")
 
     def predict(self,X,feature_name):
-        print("Enteringgggggggggggggg.....................................")
-        self.image_numpy = io.imread( X )
-        print(self.image_numpy.dtype)
-        #when working with url
+        print("Entering.....................................")
+        if X[-3:]=="png":
+            self.image_numpy = io.imread(X)
+            self.image_numpy = self.image_numpy[:,:,:3]
+            print("PNG is ready to detect..................")
+        else:
+            self.image_numpy = io.imread( X )
+            print("Ready to detect")
         print("Detecting........................................")
         self.detections = self.detector.detectObjectsFromImage(input_type="array", input_image=self.image_numpy , output_image_path=os.path.join(self.execution_path , "image.png"))
         self.identity = dict()
