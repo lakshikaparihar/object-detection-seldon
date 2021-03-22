@@ -13,7 +13,7 @@ class object_Detection_URL(object):
         self.detector = ObjectDetection()
         self.detector.setModelTypeAsRetinaNet()
         self.detector.setModelPath( os.path.join(self.execution_path , "resnet50_coco_best_v2.1.0.h5"))
-        self.detector.loadModel()
+        self.detector.loadModel(detection_speed='flash')
         print("Loading model..........")
 
     def predict(self,X,feature_name):
