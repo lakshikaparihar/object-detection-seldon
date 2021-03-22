@@ -14,6 +14,6 @@ class object_Detection_video(object):
         self.detector.loadModel()
         print("Loading model..........")
 
-    def predict(self,feature_name):
-        self.detections = self.detector.detectObjectsFromVideo(input_file_path=os.path.join( self.execution_path, "traffic-mini.mp4"),output_file_path=os.path.join(self.execution_path, "traffic_mini_detected_1"), frames_per_second=29, log_progress=True)
+    def predict(self,X,feature_name):
+        self.detections = self.detector.detectObjectsFromVideo(input_file_path=os.path.join( self.execution_path, X),output_file_path=os.path.join(self.execution_path, "traffic_mini_detected_1"), frames_per_second=29, log_progress=True)
         return self.detections
